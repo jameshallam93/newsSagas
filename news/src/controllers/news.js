@@ -6,6 +6,7 @@ const KEY = process.env.REACT_APP_API_KEY
 const newsRequests = {
     async getNews(searchTerms) {
         const request = `${baseUrl}${searchTerms}&apiKey=${KEY}`
+        console.log(request)
         const response = await axios.get(request)
         return (response.data)
     }

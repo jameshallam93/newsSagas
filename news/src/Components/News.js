@@ -1,22 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
+import Article from "./Article"
 
-const removeHtmlTags = (string) => {
-    return string.replace(/(<([^>]+)>)/ig, '* ')
-}
-
-const Article = ({ article }) => {
-
-    const description = removeHtmlTags(article.description)
-
-    return (
-        <div>
-            <h1>{article.title}</h1>
-            <h3>{description}</h3>
-            <a href={article.url}>Link to the full story</a><p>Brought to you by {article.source.name}</p>
-        </div>
-    )
-}
 
 const News = () => {
     const articles = useSelector(state =>
@@ -32,7 +17,13 @@ const News = () => {
     }
     return (
         <div>
-            <Article article={articles[0]} />
+            {
+                articles.map(article =>
+                    <Article article = {article}
+                    key = {article.url} />
+                )
+            }
+                
         </div>
     )
 }

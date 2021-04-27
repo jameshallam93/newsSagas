@@ -1,0 +1,14 @@
+body {
+    padding:100px;
+    background-color: blanchedalmond;
+}
+.collumn1 {
+    width:25%;
+    float:left;
+}
+.collum2 {
+    width:75%;
+}
+.article-description {
+    text-align: center;
+}

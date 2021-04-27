@@ -1,10 +1,11 @@
 
 
-export const GET_NEWS = (url) => {
+export const GET_NEWS = (searchTerms, scope) => {
     return ({
         type: "GET_NEWS",
         payload: {
-            url
+            searchTerms,
+            scope
         }
     })
 }

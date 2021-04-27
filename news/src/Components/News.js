@@ -20,9 +20,9 @@ const News = () => {
             {
                 articles.map(article =>
                     <>
-                        <Article article = {article}
-                        key = {article.url} />
-                        <hr className = "rounded"/>
+                        <Article article={article}
+                            key={article.url} />
+                        <hr className="rounded" />
                     </>
                 )
             }

@@ -1,14 +1,35 @@
 body {
-    padding:100px;
-    background-color: blanchedalmond;
+
+    background-color: #EFEFEF;
+    text-align: center;
+    font-family:garamond;
 }
-.collumn1 {
-    width:25%;
-    float:left;
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #A9A9A9;
+    color: white;
+    font-size: 30px;
+    text-decoration: underline;
 }
-.collum2 {
-    width:75%;
+.news {
+    background-color:#EFEFEF;
+    padding:60px;
+    max-width:800px;
+    margin:0 auto;
 }
 .article-description {
-    text-align: center;
+    background-color: #CAEBF2;
+    font-family: 'Times New Roman', Times, serif
+}
+.article-title {
+    background-color:#CAEBF2
+}
+.incidentals {
+    color: #ff3b3f;
+    font-weight:bolder
+}
+.rounded {
+    border-top: 8px solid black;
+    border-radius: 5px;
 }

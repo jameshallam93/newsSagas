@@ -7,7 +7,6 @@ const KEY = process.env.REACT_APP_API_KEY
 
 const newsRequests = {
     async getNews(searchTerms, scope) {
-        console.log(KEY)
         const scopeModifier = getScopeModifier(scope)
         const request = `${baseUrl}${scopeModifier}${searchTerms}&apiKey=${KEY}`
 

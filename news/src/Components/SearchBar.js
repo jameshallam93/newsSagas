@@ -10,7 +10,6 @@ const SearchBar = () =>{
 
     const handleSearch = async () => {
         try {
-            console.log(`scope from app: ${scope}`)
             dispatch(GET_NEWS(searchTerms, scope))
         } catch (e) {
             console.log(e)

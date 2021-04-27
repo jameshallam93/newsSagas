@@ -23,9 +23,16 @@ Relies on sagas to handle api requests and allows for a loading component to be 
 ## Todo:
 
 -[X] Expand News component to show more than just the title of the first article shown
+
 -[X] Allow for the searching of multiple keywords 
+
 -[] Allow for additional API options to be used (sources, domains, timespans etc.)
+
 -[] Create an action channel for news api (maybe add login as additional channel?)
+
 -[] Add login system with domain/source preferences saved to each user
+
 -[] Rejig layout - add second collumn
+
 -[] Add option to go to next page - link to next 20 results
+

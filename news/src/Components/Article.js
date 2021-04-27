@@ -21,11 +21,13 @@ const Article = ({ article }) => {
 
     return (
         <div>
-            <h1>{article.title}</h1>
+            <h1 className = "article-title">{article.title}</h1>
             <img src = {article.urlToImage} style = {imageStyle}  alt = "not found"/>
             <h3 className = "article-description">{description}</h3>
-            <a href={article.url}>Link to the full story</a><p>Brought to you by {article.source.name}</p>
-            <p>Published {formattedDate}</p>
+            <div className = "incidentals">
+                <a href={article.url}>Link to the full story</a><p>Brought to you by {article.source.name}</p>
+                <p>Published {formattedDate}</p>
+            </div>
         </div>
     )
 }

@@ -9,10 +9,16 @@ function App() {
     return (
         <>
             <div className = "collum1">
-                <h1>Search for keywords</h1>
-                <SearchBar />
+                <div className = "header">
+                    <h1>Custom News</h1>
+                    <h2>News your way</h2>
+                </div>
+
+
             </div>
-            <div className = "collum2">
+            <div className = "news">
+                <h2>Search for keywords</h2>
+                <SearchBar />
                 <Loading />
                 <News />
             </div>

@@ -16,7 +16,7 @@ Relies on sagas to handle api requests and allows for a loading component to be 
 * npm install
 * add environment variable REACT_APP_API_KEY (you will need to get a newsapi.org key for this)
 * change directory to newssagas/news
-* run """docker build -t news:news-sagas"""
+* run """docker build . -t news:news-sagas"""
 * run """docker run --env REACT_APP_API_KEY -dp 3000:3000 news:news-sagas"""
 * Can be accessed at localhost:3000
 

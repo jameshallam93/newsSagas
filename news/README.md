@@ -26,7 +26,7 @@ Relies on sagas to handle api requests and allows for a loading component to be 
 
 -[X] Allow for the searching of multiple keywords 
 
--[] Allow for additional API options to be used (sources, domains, timespans etc.)
+-[X] Allow for additional API options to be used (sources, domains, timespans etc.) **Still to do - timespans**
 
 -[] Create an action channel for news api (maybe add login as additional channel?)
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import image from "../circles-menu-1.gif"
+import loadingGif from "../circles-menu-1.gif"
 
 const Loading = () => {
     const isLoading = useSelector(state =>
@@ -14,7 +14,7 @@ const Loading = () => {
         return (
             <>
                 <h1>Loading</h1>
-                <img src = {image} alt = "loading" style = {imgStyle}></img>
+                <img src = {loadingGif} alt = "loading" style = {imgStyle}></img>
             </>
         )
     }

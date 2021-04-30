@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
+import { removeElementFromArray } from "./removeElementFromArray"
 
-const initialState = {
+const initialNewsState = {
     loading: false,
     news: []
 }
 
-const newsReducer = (state = initialState, action) => {
+const newsReducer = (state = initialNewsState, action) => {
     switch (action.type) {
         case "GET_NEWS":
             return ({
@@ -23,8 +24,41 @@ const newsReducer = (state = initialState, action) => {
     }
 }
 
+const initialSourceState = {
+    sources:[],
+    scope:"everything"
+}
+
+const sourceReducer = (state = initialSourceState, action) =>{
+    switch (action.type) {
+        case "ADD_SOURCE":
+            return ({
+                ...state,
+                sources: [...state.sources, action.payload.source]
+            })
+        case "REMOVE_SOURCE":
+            const sourceToRemove = action.payload.source
+            const newSources = removeElementFromArray(state.sources, sourceToRemove)
+            return ({
+                ...state,
+                sources:newSources
+            })
+        case "CHANGE_SCOPE":
+            const newScope = state.scope === "everything" ? 
+                "top-articles" :
+                "everything"
+            return {
+                ...state,
+                scope:newScope
+            }
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
-    news: newsReducer
+    news: newsReducer,
+    sources: sourceReducer
 })
 
 export default rootReducer

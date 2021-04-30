@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { CHANGE_SCOPE, GET_NEWS } from "../Redux/actions"
+import { GET_NEWS } from "../Redux/actions"
 import SourceFilter from "./SourceFilter"
 import ScopeFilter from "./ScopeFilter"
 

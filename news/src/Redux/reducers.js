@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { removeElementFromArray } from "./removeElementFromArray"
 
 const initialNewsState = {
     loading: false,
@@ -36,13 +37,8 @@ const sourceReducer = (state = initialSourceState, action) =>{
                 sources: [...state.sources, action.payload.source]
             })
         case "REMOVE_SOURCE":
-            let newSources = []
             const sourceToRemove = action.payload.source
-            state.forEach(source =>{
-                if (source !== sourceToRemove){
-                    newSources.push(source)
-                }
-            })
+            const newSources = removeElementFromArray(state.sources, sourceToRemove)
             return ({
                 ...state,
                 sources:newSources

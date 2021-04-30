@@ -23,24 +23,38 @@ const newsReducer = (state = initialNewsState, action) => {
     }
 }
 
-const initialSourceState = []
+const initialSourceState = {
+    sources:[],
+    scope:"everything"
+}
 
 const sourceReducer = (state = initialSourceState, action) =>{
     switch (action.type) {
         case "ADD_SOURCE":
-            return ([
+            return ({
                 ...state,
-                action.payload.source
-            ])
+                sources: [...state.sources, action.payload.source]
+            })
         case "REMOVE_SOURCE":
-            let newState = []
+            let newSources = []
             const sourceToRemove = action.payload.source
             state.forEach(source =>{
                 if (source !== sourceToRemove){
-                    newState.push(source)
+                    newSources.push(source)
                 }
             })
-            return newState
+            return ({
+                ...state,
+                sources:newSources
+            })
+        case "CHANGE_SCOPE":
+            const newScope = state.scope === "everything" ? 
+                "top-articles" :
+                "everything"
+            return {
+                ...state,
+                scope:newScope
+            }
         default:
             return state
     }

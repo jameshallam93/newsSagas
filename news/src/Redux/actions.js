@@ -36,3 +36,9 @@ export const REMOVE_SOURCE = (source) =>{
         }
     })
 }
+
+export const CHANGE_SCOPE = () =>{
+    return ({
+        type:"CHANGE_SCOPE"
+    })
+}

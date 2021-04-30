@@ -6,9 +6,20 @@ const KEY = process.env.REACT_APP_API_KEY
 
 
 const newsRequests = {
-    async getNews(searchTerms, scope) {
+    async getNews(searchTerms, scope, sources) {
+        console.log(sources)
         const scopeModifier = getScopeModifier(scope)
-        const request = `${baseUrl}${scopeModifier}${searchTerms}&apiKey=${KEY}`
+
+        const sourceModifier = sources =>{
+            let baseString = `&sources=`
+            sources.forEach(source=>{
+                baseString = `${baseString}${source},`
+            })
+            console.log(baseString)
+            return baseString
+        }
+        const sourceString = sourceModifier(sources)
+        const request = `${baseUrl}${scopeModifier}${searchTerms}${sourceString}&apiKey=${KEY}`
 
         const response = await axios.get(request)
         return (response.data)

@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux"
 
 import "./style.css"
-import App from './App';
+import App from "./App";
 import store from "./Redux/store"
 
-require('dotenv').config()
+require("dotenv").config()
 
 ReactDOM.render(
     <Provider store={store}>
@@ -15,6 +15,6 @@ ReactDOM.render(
         </React.StrictMode>
     </Provider>
     ,
-    document.getElementById('root')
+    document.getElementById("root")
 );
 

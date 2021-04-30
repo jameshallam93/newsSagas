@@ -1,19 +1,31 @@
 import React, { useState } from "react"
-import { useDispatch } from "react-redux"
-import { GET_NEWS } from "../Redux/actions"
+import { useDispatch, useSelector } from "react-redux"
+import { GET_NEWS, ADD_SOURCE, REMOVE_SOURCE } from "../Redux/actions"
+
+const sourceIds = ["abc-news", "associated-press", "axios", "bbc-news", "cbs-news", "cnn", "fox-news","independent", "nbc-news", "the-huffington-post", "the-wall-street-journal"]
 
 const SearchBar = () =>{
 
     const dispatch = useDispatch()
     const [searchTerms, setSearchTerms] = useState("")
     const [scope, setScope] = useState("everything")
-
+    const sources = useSelector(state =>{
+        return state.sources
+    })
     const handleSearch = async () => {
         try {
-            dispatch(GET_NEWS(searchTerms, scope))
+            dispatch(GET_NEWS(searchTerms, scope, sources))
         } catch (e) {
             console.log(e)
         }
+    }  
+    const handleSourceChange = (event) =>{
+        const source = event.target.value
+        if (sources.includes(source)){
+            dispatch(REMOVE_SOURCE(source))
+            return;
+        }
+        dispatch(ADD_SOURCE(source))
     }
 
     const handleScopeChange = (event) =>{
@@ -41,6 +53,28 @@ const SearchBar = () =>{
                 Top articles
             </label>
         </form>
+        <div style = {{height:50}}/>
+        <div className = "sources">
+            <form>
+                {
+                    sourceIds.map(source =>{
+                        return(
+                            <label>
+                                <input type = "checkbox"
+                                value = {source}
+                                id = {source}
+                                name = {source}
+                                checked = {sources.includes(source)}
+                                onChange = {handleSourceChange}
+                                />
+                                {source}
+                            </label>
+                        )
+                    })
+                }
+            </form>
+        </div>
+
     </div>
     )
 }

@@ -4,15 +4,18 @@ body {
     font-family:garamond;
 }
 .header {
-    height:200px;
+    height:260px;
+    margin-left:250px;
+    margin-right:250px;
     padding: 20px;
     text-align: center;
-    background: #A9A9A9;
     color: white;
     font-size: 30px;
     text-decoration: underline;
 }
 .news {
+    border-style: solid;
+    border-color:#A9A9A9;
     background-color:#EFEFEF;
     padding:60px;
     max-width:800px;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { GET_NEWS } from "../Redux/actions"
 import SourceFilter from "./SourceFilter"
 import ScopeFilter from "./ScopeFilter"
+import SearchTypeFilter from "./SearchTypeFilter"
 
 const SearchBar = () =>{
 
@@ -15,10 +16,23 @@ const SearchBar = () =>{
     const sources = useSelector(state =>{
         return state.sources.sources
     })
+    const searchType = useSelector(state =>{
+        return state.sources.searchType
+    })
+
+    const generateSearchParameters = () =>{
+        return ({
+            searchTerms,
+            scope,
+            sources,
+            searchType
+        })
+    }
 
     const handleSearch = async () => {
         try {
-            dispatch(GET_NEWS(searchTerms, scope, sources))
+            const searchParameters = generateSearchParameters()
+            dispatch(GET_NEWS(searchParameters))
         } catch (e) {
             console.log(e)
         }
@@ -29,8 +43,10 @@ const SearchBar = () =>{
         <input type="text" value={searchTerms} onChange={(event) => { setSearchTerms(event.target.value) }}></input>
         <button onClick={handleSearch}>Search</button>
         <ScopeFilter />
+        <SearchTypeFilter />
         <div style = {{height:50}}/>
         <SourceFilter/>
+
     </div>
     )
 }

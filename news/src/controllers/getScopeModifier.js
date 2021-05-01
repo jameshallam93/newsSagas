@@ -1,6 +1,6 @@
 export const getScopeModifier = (scope) =>{
     if (scope === "everything")
-        { return "everything?q="
+        { return "everything"
     }
-    return "top-headlines?q="
+    return "top-headlines"
 }

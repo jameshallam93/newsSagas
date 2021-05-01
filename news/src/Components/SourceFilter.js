@@ -6,7 +6,7 @@ import { ADD_SOURCE, REMOVE_SOURCE } from "../Redux/actions"
 const SourceFilter = () =>{
     const dispatch = useDispatch()
     const sources = useSelector(state =>{
-        return state.sources.sources
+        return state.parameters.sources
     })
 
     const handleSourceChange = (event) =>{

@@ -5,7 +5,7 @@ import { CHANGE_SEARCH_TYPE } from "../Redux/actions"
 const SearchTypeFilter = () =>{
     
     const searchType = useSelector(state =>{
-        return state.sources.searchType
+        return state.parameters.searchType
     })
 
     const dispatch = useDispatch()

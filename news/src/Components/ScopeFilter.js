@@ -6,7 +6,7 @@ const ScopeFilter = () =>{
 
     const dispatch = useDispatch()
     const scope = useSelector(state =>
-        state.sources.scope
+        state.parameters.scope
     )
     const handleScopeChange = (event) =>{
         dispatch(CHANGE_SCOPE())

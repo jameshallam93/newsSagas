@@ -46,3 +46,12 @@ export const CHANGE_SEARCH_TYPE = () =>{
         type:"CHANGE_SEARCH_TYPE"
     })
 }
+
+export const CHANGE_ORDER_BY = (ordering) =>{
+    return ({
+        type:"CHANGE_ORDER_BY",
+        payload:{
+            ordering
+        }
+    })
+}

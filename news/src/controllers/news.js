@@ -20,15 +20,20 @@ const getSearchTypeModifier = (searchType) =>{
     return modifier
 }
 
+const getSortByModifier = (orderBy) =>{
+    return `&sortBy=${orderBy}`
+}
+
 const newsRequests = {
     async getNews(searchParameters) {
-        const {searchTerms, scope, sources, searchType} = searchParameters
+        const {searchTerms, scope, sources, searchType, orderBy} = searchParameters
 
         const scopeModifier = getScopeModifier(scope)
-        const sourceString = getSourceModifier(sources)
+        const sourceModifier = getSourceModifier(sources)
         const searchTypeModifier = getSearchTypeModifier(searchType)
+        const sortByModifier = getSortByModifier(orderBy)
 
-        const request = `${baseUrl}${scopeModifier}${searchTypeModifier}${searchTerms}${sourceString}&apiKey=${KEY}`
+        const request = `${baseUrl}${scopeModifier}${searchTypeModifier}${searchTerms}${sourceModifier}&language=en${sortByModifier}&apiKey=${KEY}`
 
         const response = await axios.get(request)
         return (response.data)

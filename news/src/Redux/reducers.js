@@ -24,13 +24,14 @@ const newsReducer = (state = initialNewsState, action) => {
     }
 }
 
-const initialSourceState = {
+const initialParameterState = {
     sources:[],
     scope:"everything",
-    searchType: "headline"
+    searchType: "headline",
+    orderBy: "popularity"
 }
 
-const sourceReducer = (state = initialSourceState, action) =>{
+const parameterReducer = (state = initialParameterState, action) =>{
     switch (action.type) {
         case "ADD_SOURCE":
             return ({
@@ -60,6 +61,11 @@ const sourceReducer = (state = initialSourceState, action) =>{
                 ...state,
                 searchType: newSearchType
             })
+        case "CHANGE_ORDER_BY":
+            return ({
+                ...state,
+                orderBy: action.payload.ordering
+            })
         default:
             return state
     }
@@ -67,7 +73,7 @@ const sourceReducer = (state = initialSourceState, action) =>{
 
 const rootReducer = combineReducers({
     news: newsReducer,
-    sources: sourceReducer
+    parameters: parameterReducer
 })
 
 export default rootReducer

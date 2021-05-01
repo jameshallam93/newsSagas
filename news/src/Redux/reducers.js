@@ -26,7 +26,8 @@ const newsReducer = (state = initialNewsState, action) => {
 
 const initialSourceState = {
     sources:[],
-    scope:"everything"
+    scope:"everything",
+    searchType: "headline"
 }
 
 const sourceReducer = (state = initialSourceState, action) =>{
@@ -51,6 +52,14 @@ const sourceReducer = (state = initialSourceState, action) =>{
                 ...state,
                 scope:newScope
             }
+        case "CHANGE_SEARCH_TYPE":
+            const newSearchType = state.searchType === "headline" ?
+                "article" :
+                "headline"
+            return ({
+                ...state,
+                searchType: newSearchType
+            })
         default:
             return state
     }

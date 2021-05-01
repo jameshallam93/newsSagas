@@ -1,12 +1,10 @@
 
 
-export const GET_NEWS = (searchTerms, scope, sources) => {
+export const GET_NEWS = (searchParameters) => {
     return ({
         type: "GET_NEWS",
         payload: {
-            searchTerms,
-            scope,
-            sources
+            searchParameters
         }
     })
 }
@@ -40,5 +38,11 @@ export const REMOVE_SOURCE = (source) =>{
 export const CHANGE_SCOPE = () =>{
     return ({
         type:"CHANGE_SCOPE"
+    })
+}
+
+export const CHANGE_SEARCH_TYPE = () =>{
+    return ({
+        type:"CHANGE_SEARCH_TYPE"
     })
 }

@@ -17,40 +17,40 @@ export const NEWS_RECEIVED = (news) => {
     })
 }
 
-export const ADD_SOURCE = (source) =>{
+export const ADD_SOURCE = (source) => {
     return ({
-        type:"ADD_SOURCE",
-        payload : {
+        type: "ADD_SOURCE",
+        payload: {
             source
         }
     })
 }
 
-export const REMOVE_SOURCE = (source) =>{
-    return({
-        type:"REMOVE_SOURCE",
-        payload:{
+export const REMOVE_SOURCE = (source) => {
+    return ({
+        type: "REMOVE_SOURCE",
+        payload: {
             source
         }
     })
 }
 
-export const CHANGE_SCOPE = () =>{
+export const CHANGE_SCOPE = () => {
     return ({
-        type:"CHANGE_SCOPE"
+        type: "CHANGE_SCOPE"
     })
 }
 
-export const CHANGE_SEARCH_TYPE = () =>{
+export const CHANGE_SEARCH_TYPE = () => {
     return ({
-        type:"CHANGE_SEARCH_TYPE"
+        type: "CHANGE_SEARCH_TYPE"
     })
 }
 
-export const CHANGE_ORDER_BY = (ordering) =>{
+export const CHANGE_ORDER_BY = (ordering) => {
     return ({
-        type:"CHANGE_ORDER_BY",
-        payload:{
+        type: "CHANGE_ORDER_BY",
+        payload: {
             ordering
         }
     })

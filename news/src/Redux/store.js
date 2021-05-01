@@ -8,8 +8,8 @@ const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(
-    sagaMiddleware, logger
-)))
+        sagaMiddleware, logger
+    )))
 
 sagaMiddleware.run(rootSaga)
 

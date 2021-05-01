@@ -7,14 +7,14 @@ const Loading = () => {
         state.news.loading
     )
     const imgStyle = {
-        height:100,
-        width:100
+        height: 100,
+        width: 100
     }
     if (isLoading) {
         return (
             <>
                 <h1>Loading</h1>
-                <img src = {loadingGif} alt = "loading" style = {imgStyle}></img>
+                <img src={loadingGif} alt="loading" style={imgStyle}></img>
             </>
         )
     }

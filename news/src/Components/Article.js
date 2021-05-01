@@ -12,7 +12,7 @@ const Article = ({ article }) => {
         maxHeight: 500,
         maxWidth: 800
     }
-    
+
     return (
         <div>
             <h1 className="article-title">{article.title}</h1>

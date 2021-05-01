@@ -1,7 +1,7 @@
-export const removeElementFromArray = (array, toRemove) =>{
+export const removeElementFromArray = (array, toRemove) => {
     const newArray = []
-    array.forEach(element =>{
-        if(element !== toRemove){
+    array.forEach(element => {
+        if (element !== toRemove) {
             newArray.push(element)
         }
     })

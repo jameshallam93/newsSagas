@@ -1,40 +1,23 @@
 import axios from "axios"
 
-import { getScopeModifier } from "./getScopeModifier"
+import { getScopeModifier, getSourceModifier, getSearchTypeModifier, getSortByModifier } from "./requestModifiers"
 const baseUrl = `https://newsapi.org/v2/`
 const KEY = process.env.REACT_APP_API_KEY
 
+const generateRequest = (searchParameters) => {
+    const { searchTerms, scope, sources, searchType, orderBy } = searchParameters
 
-const getSourceModifier = sources =>{
-    let baseString = `&sources=`
-    sources.forEach(source=>{
-        baseString = `${baseString}${source},`
-    })
-    return baseString
-}
+    const scopeModifier = getScopeModifier(scope)
+    const sourceModifier = getSourceModifier(sources)
+    const searchTypeModifier = getSearchTypeModifier(searchType)
+    const sortByModifier = getSortByModifier(orderBy)
 
-const getSearchTypeModifier = (searchType) =>{
-    const modifier = searchType === "article" ?
-        "?q=" :
-        "?qInTitle="
-    return modifier
-}
-
-const getSortByModifier = (orderBy) =>{
-    return `&sortBy=${orderBy}`
+    return `${baseUrl}${scopeModifier}${searchTypeModifier}${searchTerms}${sourceModifier}&language=en${sortByModifier}&apiKey=${KEY}`
 }
 
 const newsRequests = {
     async getNews(searchParameters) {
-        const {searchTerms, scope, sources, searchType, orderBy} = searchParameters
-
-        const scopeModifier = getScopeModifier(scope)
-        const sourceModifier = getSourceModifier(sources)
-        const searchTypeModifier = getSearchTypeModifier(searchType)
-        const sortByModifier = getSortByModifier(orderBy)
-
-        const request = `${baseUrl}${scopeModifier}${searchTypeModifier}${searchTerms}${sourceModifier}&language=en${sortByModifier}&apiKey=${KEY}`
-
+        const request = generateRequest(searchParameters)
         const response = await axios.get(request)
         return (response.data)
     }

@@ -2,7 +2,7 @@ import React from "react"
 
 import Loading from "./Components/Loading"
 import News from "./Components/News"
-import SearchBar from "./Components/SearchBar"
+import SearchBar from "./Components/SearchBar/SearchBar"
 import Header from "./Components/Header"
 
 function App() {

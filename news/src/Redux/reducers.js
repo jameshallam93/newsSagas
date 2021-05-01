@@ -25,13 +25,13 @@ const newsReducer = (state = initialNewsState, action) => {
 }
 
 const initialParameterState = {
-    sources:[],
-    scope:"everything",
+    sources: [],
+    scope: "everything",
     searchType: "headline",
     orderBy: "popularity"
 }
 
-const parameterReducer = (state = initialParameterState, action) =>{
+const parameterReducer = (state = initialParameterState, action) => {
     switch (action.type) {
         case "ADD_SOURCE":
             return ({
@@ -43,15 +43,15 @@ const parameterReducer = (state = initialParameterState, action) =>{
             const newSources = removeElementFromArray(state.sources, sourceToRemove)
             return ({
                 ...state,
-                sources:newSources
+                sources: newSources
             })
         case "CHANGE_SCOPE":
-            const newScope = state.scope === "everything" ? 
+            const newScope = state.scope === "everything" ?
                 "top-articles" :
                 "everything"
             return {
                 ...state,
-                scope:newScope
+                scope: newScope
             }
         case "CHANGE_SEARCH_TYPE":
             const newSearchType = state.searchType === "headline" ?
